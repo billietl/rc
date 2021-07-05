@@ -3,3 +3,7 @@
   pacman:
     name: 
       - go
+- name: Install go tools
+  shell: go get {{ item }}
+  with_items:
+    - golang.org/x/tools/cmd/goimports
