@@ -4,4 +4,5 @@ modules_to_manage:
 - docker
 - github
 - go
+- kubernetes
 - zoxide

@@ -1,0 +1,6 @@
+---
+- name: Copy {{ name }} file
+  copy:
+    src: files/env/{{ name }}.sh
+    dest: ~/.scripts/env/{{ name }}
+    mode: "0750"

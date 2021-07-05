@@ -1,0 +1,11 @@
+---
+- name: Install kubernetes utilities
+  pacman:
+    name: 
+      - kubectl
+      - kubectx
+      - kubeval
+- name: Copy env file
+  include_tasks: _copy_env_file.yml
+  vars:
+    name: kubernetes

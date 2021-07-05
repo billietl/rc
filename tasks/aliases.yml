@@ -1,6 +1,5 @@
 ---
-- name: Copy aliases file
-  copy:
-    src: files/env/aliases.sh
-    dest: ~/.scripts/env/aliases
-    mode: "0750"
+- name: Copy env file
+  include_tasks: _copy_env_file.yml
+  vars:
+    name: aliases
