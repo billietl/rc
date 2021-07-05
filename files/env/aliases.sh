@@ -8,6 +8,7 @@ alias cp="cp -i"
 alias df='df -h'
 alias free='free -m'
 alias np='nano -w PKGBUILD'
+alias less='less -R'
 alias more=less
 alias l='ls -lh'
 alias ll='ls -lah'
