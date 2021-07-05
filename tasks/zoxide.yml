@@ -1,0 +1,11 @@
+---
+- name: Install zoxide & fzf
+  pacman:
+    name: 
+      - zoxide
+      - fzf
+- name: Copy zoxide file
+  copy:
+    src: files/env/zoxide.sh
+    dest: ~/.scripts/env/zoxide
+    mode: "0750"

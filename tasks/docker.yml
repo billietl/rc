@@ -1,0 +1,25 @@
+---
+- name: Install docker
+  pacman:
+    name: 
+      - docker
+      - docker-compose
+      - python-docker
+      - python-dockerpty
+      - python-docker-pycreds
+- name: Enable start docker
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+- name: Add current user to docker group
+  user:
+    name: "{{ lookup('env','USER') }}"
+    groups:
+      - docker
+    append: yes
+- name: Copy docker file
+  copy:
+    src: files/env/docker.sh
+    dest: ~/.scripts/env/docker
+    mode: "0750"

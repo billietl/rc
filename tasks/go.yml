@@ -1,0 +1,10 @@
+---
+- name: Install go
+  pacman:
+    name: 
+      - go
+- name: Copy go file
+  copy:
+    src: files/env/go.sh
+    dest: ~/.scripts/env/go
+    mode: "0750"

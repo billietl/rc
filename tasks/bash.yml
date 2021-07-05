@@ -1,0 +1,6 @@
+---
+- name: Copy bash file
+  copy:
+    src: files/env/bash.sh
+    dest: ~/.scripts/env/bash
+    mode: "0750"

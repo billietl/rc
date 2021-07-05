@@ -1,0 +1,7 @@
+modules_to_manage:
+- aliases
+- bash
+- docker
+- github
+- go
+- zoxide

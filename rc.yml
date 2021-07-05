@@ -1,0 +1,24 @@
+---
+- name: Update rc files
+  hosts: localhost
+  tasks:
+  - name: Create directories
+    file:
+      path: "{{ item }}"
+      state: directory
+      mode: '0700'
+    with_items:
+      - ~/.scripts
+      - ~/.scripts/env
+  - name: Copy main rc file
+    template:
+      src: files/rc.j2.sh
+      dest: ~/.scripts/rc
+      mode: '0755'
+  - name: Include all modules
+    include_tasks: tasks/{{ item }}.yml
+    loop: "{{ modules_to_manage }}"
+  - name: Plug rc in bashrc
+    lineinfile:
+      path: ~/.bashrc
+      line: "source ~/.scripts/rc"

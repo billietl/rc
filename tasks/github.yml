@@ -1,0 +1,10 @@
+---
+- name: Install github CLI
+  pacman:
+    name: 
+      - hub
+- name: Copy github file
+  copy:
+    src: files/env/github.sh
+    dest: ~/.scripts/env/github
+    mode: "0750"

@@ -1,0 +1,6 @@
+---
+- name: Copy aliases file
+  copy:
+    src: files/env/aliases.sh
+    dest: ~/.scripts/env/aliases
+    mode: "0750"
