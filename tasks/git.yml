@@ -1,0 +1,23 @@
+---
+- name: Install Git
+  pacman:
+    name: 
+      - git
+- name: Setup configs
+  git_config:
+    scope: global
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+  with_items:
+    - name: alias.lol
+      value: "log --graph --pretty=format:\"%C(yellow)%h%Creset%C(cyan)%C(bold)%d%Creset %C(cyan)(%cr)%Creset %C(green)%ce%Creset %s\""
+    - name: push.default
+      value: simple
+    - name: pull.rebase
+      value: "true"
+    - name: core.excludesfile
+      value: ~/.gitignore
+- name: Restore gitignore file
+  copy:
+    src: files/git.gitignore
+    dest: ~/.gitignore

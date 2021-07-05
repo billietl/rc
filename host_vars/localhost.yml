@@ -2,7 +2,9 @@ modules_to_manage:
 - aliases
 - bash
 - docker
+- git
 - github
 - go
 - kubernetes
+- vscode
 - zoxide

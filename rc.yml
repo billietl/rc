@@ -18,6 +18,12 @@
   - name: Include all modules
     include_tasks: tasks/{{ item }}.yml
     loop: "{{ modules_to_manage }}"
+    ignore_errors: yes
+  - name: Copy env file
+    include_tasks: tasks/_copy_env_file.yml
+    loop: "{{ modules_to_manage }}"
+    vars:
+      name: "{{ item }}"
   - name: Plug rc in bashrc
     lineinfile:
       path: ~/.bashrc

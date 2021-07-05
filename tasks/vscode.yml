@@ -1,0 +1,9 @@
+---
+- name: Install vscode OSS
+  pacman:
+    name:
+      - code
+- name: Restore settings
+  copy:
+    src: files/vscode.settings.json
+    dest: ~/.config/Code - OSS/User/settings.json
