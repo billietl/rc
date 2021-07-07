@@ -1,5 +1,6 @@
 ---
 - name: Install zoxide & fzf
+  become: yes
   pacman:
     name: 
       - zoxide

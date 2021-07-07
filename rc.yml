@@ -24,7 +24,10 @@
     loop: "{{ modules_to_manage }}"
     vars:
       name: "{{ item }}"
-  - name: Plug rc in bashrc
+  - name: Plug rc in *rc
     lineinfile:
-      path: ~/.bashrc
+      path: ~/.{{ item }}
       line: "source ~/.scripts/rc"
+    with_items:
+      - bashrc
+      - zshrc

@@ -1,5 +1,6 @@
 ---
 - name: Install vscode OSS
+  become: yes
   pacman:
     name:
       - code
