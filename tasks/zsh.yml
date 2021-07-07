@@ -1,0 +1,7 @@
+---
+- name: Install zsh
+  pacman:
+    name: 
+      - zsh
+      - oh-my-zsh
+      - zsh-theme-powerlevel10k

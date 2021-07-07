@@ -8,3 +8,4 @@ modules_to_manage:
 - kubernetes
 - vscode
 - zoxide
+- zsh
