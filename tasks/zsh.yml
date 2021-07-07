@@ -6,3 +6,12 @@
       - zsh
       - oh-my-zsh
       - zsh-theme-powerlevel10k
+- name: Copy rc file
+  copy:
+    src: files/rc.zsh.sh
+    dest: ~/.scripts/zshrc
+- name: Plug rc file
+  lineinfile:
+    path: ~/.zshrc
+    line: "source ~/.scripts/zshrc"
+    insertbefore: BOF

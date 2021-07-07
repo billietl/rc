@@ -1,0 +1,10 @@
+---
+- name: Copy rc file
+  copy:
+    src: files/rc.bash.sh
+    dest: ~/.scripts/bashrc
+- name: Plug rc file
+  lineinfile:
+    path: ~/.bashrc
+    line: "source ~/.scripts/bashrc"
+    insertbefore: BOF
