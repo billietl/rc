@@ -15,7 +15,7 @@
     enabled: yes
 - name: Add current user to docker group
   user:
-    name: "{{ lookup('env','USER') }}"
+    name: "{{ target_username.stdout }}"
     groups:
       - docker
     append: yes

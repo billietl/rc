@@ -2,6 +2,12 @@
 - name: Update rc files
   hosts: localhost
   tasks:
+  - name: Get the target username
+    become: false
+    command: whoami
+    register: target_username
+  - debug:
+      msg: "Making changes for {{ target_username.stdout }}"
   - name: Create directories
     file:
       path: "{{ item }}"
