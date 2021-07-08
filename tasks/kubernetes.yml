@@ -5,4 +5,4 @@
     name: 
       - kubectl
       - kubectx
-      - kubeval
+      # - kubeval

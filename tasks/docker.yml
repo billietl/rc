@@ -9,11 +9,13 @@
       - python-dockerpty
       - python-docker-pycreds
 - name: Enable start docker
+  become: yes
   systemd:
     name: docker
     state: started
     enabled: yes
 - name: Add current user to docker group
+  become: yes
   user:
     name: "{{ target_username.stdout }}"
     groups:

@@ -14,6 +14,7 @@
     path: ~/.zshrc
     line: "source ~/.scripts/zshrc"
     insertbefore: BOF
+    create: yes
 - name: Set zsh the default shell
   become: yes
   user:
