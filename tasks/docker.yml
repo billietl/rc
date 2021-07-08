@@ -17,7 +17,7 @@
 - name: Add current user to docker group
   become: yes
   user:
-    name: "{{ target_username.stdout }}"
+    name: "{{ target_username.stdout | default('me') }}"
     groups:
       - docker
     append: yes

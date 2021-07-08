@@ -5,4 +5,8 @@
     name: 
       - kubectl
       - kubectx
-      # - kubeval
+- name: Install kubernetes utilities cont'd
+  become: yes
+  aur:
+    name:
+      - kubeval

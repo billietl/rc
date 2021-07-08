@@ -7,7 +7,7 @@
     command: whoami
     register: target_username
   - debug:
-      msg: "Making changes for {{ target_username.stdout }}"
+      msg: "Making changes for {{ target_username.stdout | default('me') }}"
   - name: Create directories
     file:
       path: "{{ item }}"

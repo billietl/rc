@@ -3,5 +3,9 @@
   become: yes
   pacman:
     name: 
-      # - zoxide
       - fzf
+- name: Install zoxide & fzf cont'd
+  become: yes
+  aur:
+    name:
+      - zoxide
