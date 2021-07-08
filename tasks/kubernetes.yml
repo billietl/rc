@@ -6,7 +6,4 @@
       - kubectl
       - kubectx
 - name: Install kubernetes utilities cont'd
-  become: yes
-  aur:
-    name:
-      - kubeval
+  command: pamac install --no-confirm kubeval

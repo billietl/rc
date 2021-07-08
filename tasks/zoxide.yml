@@ -5,7 +5,4 @@
     name: 
       - fzf
 - name: Install zoxide & fzf cont'd
-  become: yes
-  aur:
-    name:
-      - zoxide
+  command: pamac install --no-confirm zoxide
