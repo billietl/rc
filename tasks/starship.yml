@@ -1,0 +1,10 @@
+---
+- name: Install starship and dependencies
+  become: yes
+  pacman:
+    name:
+      - starship
+- name: Copy starship config
+  copy:
+    src: files/starship.config.toml
+    dest: ~/.config/starship.toml

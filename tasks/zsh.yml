@@ -5,7 +5,6 @@
     name: 
       - zsh
       - oh-my-zsh
-      - zsh-theme-powerlevel10k
 - name: Copy rc file
   copy:
     src: files/rc.zsh.sh

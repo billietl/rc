@@ -1,0 +1,42 @@
+[aws]
+symbol = "AWS "
+
+[gcloud]
+disabled = true
+symbol = "GCP "
+
+[git_branch]
+symbol = "GIT "
+
+[character]
+success_symbol = "[✓](bold green) "
+error_symbol = "[྾](bold red)"
+
+[cmd_duration]
+disabled = true
+
+[directory]
+truncate_to_repo = false
+truncation_symbol = ".../"
+
+[golang]
+symbol = "GO "
+
+[helm]
+symbol = "HELM "
+
+[java]
+disabled = true
+symbol = "JAVA "
+
+[kubernetes]
+symbol = "KUBERNETES "
+
+[nodejs]
+symbol = "NODEJS "
+
+[package]
+disabled = true
+
+[terraform]
+symbol = "TF "

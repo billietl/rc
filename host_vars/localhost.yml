@@ -6,6 +6,7 @@ modules_to_manage:
 - github
 - go
 - kubernetes
+- starship
 - vscode
 - zoxide
-# - zsh
+- zsh
