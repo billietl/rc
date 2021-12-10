@@ -8,3 +8,11 @@
   copy:
     src: files/minikube.config.json
     dest: ~/.minikube/config/config.json
+- name: Let user run minikube with podman
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers.d/podman
+    create: yes
+    state: present
+    line: "{{ target_username.stdout | default('me') }} ALL=(ALL) NOPASSWD: /usr/bin/podman"
+    validate: visudo -cf %s
