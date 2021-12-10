@@ -1,7 +1,7 @@
 modules_to_manage:
 - aliases
 - bash
-- docker
+- podman
 - git
 - github
 - go
