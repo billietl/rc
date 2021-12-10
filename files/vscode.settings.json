@@ -11,6 +11,13 @@
             "**/.terraform/**/*"
         ]
     },
+    "[terraform]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true
+    },
+    "terraform-ls.experimentalFeatures": {
+        "validateOnSave": true
+      },
     "terraform.languageServer": {
         "external": true,
         "args": [
@@ -33,5 +40,8 @@
     "java.project.importHint": false,
     "powermode.enabled": true,
     "diffEditor.ignoreTrimWhitespace": false,
-    "workbench.editor.untitled.hint": "hidden"
+    "workbench.editor.untitled.hint": "hidden",
+    "editor.codeActionsOnSave": null,
+    "go.toolsManagement.autoUpdate": true,
+    "redhat.telemetry.enabled": false
 }
