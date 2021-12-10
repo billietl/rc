@@ -1,0 +1,10 @@
+---
+- name: Install minikube utilities
+  become: yes
+  pacman:
+    name: 
+      - minikube
+- name: Restore settings
+  copy:
+    src: files/minikube.config.json
+    dest: ~/.minikube/config/config.json
