@@ -10,30 +10,35 @@
       msg: "Making changes for {{ target_username.stdout | default('me') }}"
   - name: Create directories
     file:
-      path: "{{ item }}"
+      path: "{{ dir_to_create }}"
       state: directory
       mode: '0700'
-    with_items:
+    loop:
       - ~/.scripts
       - ~/.scripts/env
-  - name: Copy main rc file
-    template:
-      src: files/rc.j2.sh
-      dest: ~/.scripts/rc
-      mode: '0755'
+    loop_control:
+      loop_var: dir_to_create
+  - name: Populate main rc file
+    lineinfile:
+      path: ~/.scripts/rc
+      line: "{{ line_to_add }}"
+      insertafter: EOF
+      create: yes
+    loop:
+      - export EDITOR=vim
+      - export PATH=$PATH:~/.scripts
+    loop_control:
+      loop_var: line_to_add
   - name: Include all modules
     include_tasks: tasks/{{ item }}.yml
     loop: "{{ modules_to_manage }}"
     ignore_errors: yes
-  - name: Copy env file
-    include_tasks: tasks/_copy_env_file.yml
-    loop: "{{ modules_to_manage }}"
-    vars:
-      name: "{{ item }}"
   - name: Plug rc in *rc
     lineinfile:
-      path: ~/.{{ item }}
+      path: ~/.{{ shells }}
       line: "source ~/.scripts/rc"
-    with_items:
+    loop:
       - bashrc
       - zshrc
+    loop_control:
+      loop_var: shells

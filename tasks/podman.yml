@@ -1,4 +1,8 @@
 ---
+- name: Copy env file
+  include_tasks: tasks/_copy_env_file.yml
+  vars:
+    name: "podman"
 - name: Disable stop docker
   become: yes
   systemd:

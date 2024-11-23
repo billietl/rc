@@ -1,4 +1,8 @@
 ---
+- name: Copy env file
+  include_tasks: tasks/_copy_env_file.yml
+  vars:
+    name: "minikube"
 - name: Install minikube utilities
   become: yes
   pacman:

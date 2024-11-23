@@ -4,17 +4,31 @@
   pacman:
     name: 
       - zsh
-      - oh-my-zsh
+- name: Install zsh add-ons
+  aur:
+    name: oh-my-zsh-git
+    state: present
 - name: Copy rc file
-  copy:
+  template:
     src: files/rc.zsh.sh
     dest: ~/.scripts/zshrc
+    mode: '0644'
 - name: Plug rc file
   lineinfile:
     path: ~/.zshrc
     line: "source ~/.scripts/zshrc"
-    insertbefore: BOF
+    insertafter: EOF
     create: yes
+- name: Cleanup default .zshrc file
+  lineinfile:
+    path: ~/.zshrc
+    line: "{{ line_to_delete }}"
+    state: absent
+  loop:
+    - "  source /usr/share/zsh/manjaro-zsh-config"
+    - "  source /usr/share/zsh/manjaro-zsh-prompt"
+  loop_control:
+    loop_var: line_to_delete
 - name: Set zsh the default shell
   become: yes
   user:

@@ -1,14 +1,12 @@
 ---
 - name: Create env file for {{ name }}
-  block:
-    - name: Copy {{ name }} file
-      copy:
-        src: files/env/{{ name }}.sh
-        dest: ~/.scripts/env/{{ name }}
-        mode: "0750"
-  rescue:
-    - name: Create empty file for {{ name }}
-      file:
-        path: ~/.scripts/env/{{ name }}
-        state: touch
-        mode: "0750"
+  copy:
+    src: files/env/{{ name }}.sh
+    dest: ~/.scripts/env/{{ name }}
+    mode: "0750"
+- name: Plug env file for {{ name }}
+  lineinfile:
+    path: ~/.scripts/rc
+    line: "source ~/.scripts/env/{{ name }}"
+    insertafter: EOF
+    create: yes

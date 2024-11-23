@@ -1,13 +1,7 @@
 modules_to_manage:
 - aliases
 - bash
-- podman
 - git
-- github
-- go
-- kubernetes
-- minikube
 - starship
 - vscode
-- zoxide
 - zsh
